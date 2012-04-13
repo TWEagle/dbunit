@@ -53,14 +53,14 @@
  * @link       http://www.phpunit.de/
  * @since      Class available since Release 1.1.0
  */
-if(!class_exists('phpbb_database_connection_ODBC_PDO_wrapper'))
+if(!class_exists('phpbb_database_connection_odbc_pdo_wrapper'))
 {
-	class phpbb_database_connection_ODBC_PDO_wrapper extends PDO
+	class phpbb_database_connection_odbc_pdo_wrapper extends PDO
 	{
-		//Name of the driver being used (i.e. mssql, firebird)
+		// Name of the driver being used (i.e. mssql, firebird)
 		public $driver = '';
 
-		//Version number of driver since PDO::getAttribute(PDO::ATTR_CLIENT_VERSION) is pretty useless for this
+		// Version number of driver since PDO::getAttribute(PDO::ATTR_CLIENT_VERSION) is pretty useless for this
 		public $version = 0;
 
 		function __construct($dbms, $version, $dsn, $user, $pass)
@@ -102,7 +102,7 @@ class PHPUnit_Extensions_Database_DB_MetaData_ODBC extends PHPUnit_Extensions_Da
 
 	/**
      * Constructor
-     * @var phpbb_database_connection_ODBC_PDO_wrapper
+     * @var phpbb_database_connection_odbc_pdo_wrapper
 	 * @var string - schema
      */
 	function __construct($args)
@@ -110,9 +110,9 @@ class PHPUnit_Extensions_Database_DB_MetaData_ODBC extends PHPUnit_Extensions_Da
 		parent::__construct($args);
 
 		$pdo_obj = func_get_arg(0);
-		if(!($pdo_obj instanceof phpbb_database_connection_ODBC_PDO_wrapper))
+		if(!($pdo_obj instanceof phpbb_database_connection_odbc_pdo_wrapper))
 		{
-			throw new Exception('ODBC MetaDriver requires a phpbb_database_connection_ODBC_PDO_wrapper PDO object and not a regular PDO object.');
+			throw new Exception('ODBC MetaDriver requires a phpbb_database_connection_odbc_pdo_wrapper PDO object and not a regular PDO object.');
 		}
 		
 		$this->realDriver = strtolower($pdo_obj->driver);
