@@ -98,7 +98,7 @@ abstract class PHPUnit_Extensions_Database_DB_MetaData implements PHPUnit_Extens
      * @param PDO $pdo
      * @param string $schema
      */
-    public final function __construct(PDO $pdo, $schema = '')
+    public function __construct(PDO $pdo, $schema = '')
     {
         $this->pdo    = $pdo;
         $this->schema = $schema;
